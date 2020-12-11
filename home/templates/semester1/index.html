@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="container-fluid">
+                <div class="appicon row rounded align-items-center">
+                    <div class="appicon-icon col-5">
+                        <a href="sem1/"><img class="img-fluid" src="{% static 'css/daftar.png' %}"
+                                alt="Sikadu 2.0"></a>
+                    </div>
+                    <div class="col-7">
+                        <h4><a href="sem1/" style="color: black;">Daftar Labsos</a></h4>
+                        <span><a href="sem1/" style="color: black;">Pendaftaran Labsos</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="container-fluid">
+                <div class="appicon row rounded align-items-center">
+                    <div class="appicon-icon col-5">
+                        <a href="catatan.sem1/"><img class="img-fluid" src="{% static 'css/catatan.png' %}"></a>
+                    </div>
+                    <div class="col-7">
+                        <h4><a href="catatan.sem1/" style="color: black;">Catatan</a></h4>
+                        <span><a href="catatan.sem1/" style="color: black;">Log-book Harian mahasiswa</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col col-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="container-fluid">
+                <div class="appicon row rounded align-items-center">
+                    <div class="appicon-icon col-5">
+                        <a href="forumsem1/{{id}}"><img class="img-fluid" src="{% static 'css/tema.png' %}"
+                                alt="Sitedi"></a>
+                    </div>
+                    <div class="col-7">
+                        <h4><a href="forumsem1/{{id}}" style="color: black;">Tema</a></h4>
+                        <span><a href="forumsem1/{{id}}" style="color: black;">Tema Pembelajaran semester 1</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- <div class="container-fluid">
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="mahasiswa/">
+                                    <h1 class="card-title" role="tab" id="heading{{d.id}}" style="text-align: center;">
+                                        <button class="btn btn-warning"><i class="far fa-edit"></i></i></button>
+                                    </h1>
+                                </a>
+                                <p class="card-text" style="font-weight:bold; text-align: center;">Daftar </p>
+                            </div>
+                            <div class="col-4">
+                                <a href="catatan/">
+                                    <h1 class="card-title" role="tab" id="heading{{d.id}}" style="text-align: center;">
+                                        <button class="btn btn-warning"><i class="far fa-edit"></i></i></button>
+                                    </h1>
+                                </a>
+                                <p class="card-text" style="font-weight:bold; text-align: center;">Catatan Harian</p>
+                            </div>
+                            <div class="col-4">
+                                <a href="forum/{{id}}">
+                                    <h1 class="card-title" role="tab" id="heading{{d.id}}" style="text-align: center;">
+                                        <button class="btn btn-success"><i class="far fa-comment-alt"></i></button>
+                                    </h1>
+                                </a>
+                                <p class="card-text" style="font-weight:bold; text-align: center;">Forum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
