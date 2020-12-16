@@ -11,10 +11,9 @@ SECRET_KEY = 'y&ma&g0z0r603*p2qz9^hotn**h60eey1w2kwb)glz#sdtt8&)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['128.199.222.120','localhost']
+ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = [
-#     'labsosv1.herokuapp.com',
-#     'localhost',
+#    '128.199.222.120','localhost'
 # ]
 
 
@@ -79,17 +78,17 @@ WSGI_APPLICATION = 'SIM_PKL.wsgi.application'
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'PORT': '5432',
-        'NAME': 'labsos2020',
-        'USER': 'postgres',
-        'PASSWORD': 'labsos2020',
-        'HOST': 'localhost',
-
         # 'PORT': '5432',
-        # 'NAME': 'labsos',
-        # 'USER': 'tatam',
-        # 'PASSWORD': 'katakanlah123',
+        # 'NAME': 'labsos2020',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'labsos2020',
         # 'HOST': 'localhost',
+
+        'PORT': '5432',
+        'NAME': 'labsos',
+        'USER': 'tatam',
+        'PASSWORD': 'katakanlah123',
+        'HOST': 'localhost',
     }
 }
 

@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="container-fluid" style="padding: 5px;">
-  <h1 class="mt-4 mb-4" style="text-align: center;">Pendaftaran PKL</h1>
+  <button type="button" class="btn-primary" onclick="history.back();"><i class="fas fa-arrow-left"></i> Previous</button>
+  <h4 class="mt-4 mb-4" style="text-align: center;">Pendaftaran Labsos</h4>
   <button type="button" class="btn btn-warning mb-4 rounded-pill" data-toggle="modal" data-target="#input"
     style="background-color:rgb(255, 214, 0); color: black;">
     <span><span>&#43;</span><b> I N P U T </b></span>
@@ -14,10 +15,10 @@
         <tr style="background-color: #625f53; color: aliceblue;">
           <th>No</th>
           <th>Judul</th>
-          <th>Tema</th>
+          <th>Nama Mitra</th>
           <th>Dosen Pembimbing</th>
-          <!-- <th>Tanggal Pelaksanaan</th>
-          <th>Jatuh tempo</th> -->
+          <th>Tanggal Pelaksanaan</th>
+          <th>Jatuh tempo</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -28,8 +29,8 @@
         <td>{{d.judul}}</td>
         <td>{{d.nama_mitra}}</td>
         <td>{{d.nama_dosen}}</td>
-        <!-- <td>{{d.tanggal_mulai}} - {{d.tanggal_selesai}}</td>
-        <td>{{d.jatuhtempo}} hari</td> -->
+        <td>{{d.tanggal_mulai}} - {{d.tanggal_selesai}}</td>
+        <td>{{d.jatuhtempo}} hari</td>
         <td>
           {% if d.approve == True %}
           <span class="text-success">Approved</span>
@@ -172,11 +173,8 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
-</div>
-
 {% endblock %}
 
 {% block script %}

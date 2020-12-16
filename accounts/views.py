@@ -5,10 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+from .forms import CreateUserForm, CustomerForm
 from .models import *
-from .forms import CreateUserForm
 
 def registerPage(request):
 	if request.user.is_authenticated:
@@ -30,7 +31,7 @@ def loginPage(request):
 		return redirect('/')
 	else:
 		if request.method == 'POST':
-			username = request.POST.get('username')
+			u_stafsername = request.POST.get('username')
 			password =request.POST.get('password')
 
 			user = authenticate(request, username=username, password=password)
@@ -48,6 +49,49 @@ def logoutUser(request):
 	logout(request)
 	return redirect('/accounts/')
 
+def accountSettings(request):
+	customer = request.user.customer
+	form = CustomerForm(instance=customer)
+	if request.method == 'POST':
+		form = CustomerForm(request.POST, request.FILES,instance=customer)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/accounts')
+	else:
+		form = CustomerForm(instance=customer)
+		context = {'form':form}
+		return render(request, 'accounts/account_setting.html', context)
+	
+def delete(req, id):
+    models.Pkl.objects.filter(pk=id).delete()
+    messages.success(req, 'data telah di hapus.')
+    return HttpResponseRedirect('/mahasiswas')
+
+@login_required(login_url='/accounts/')
+def update(req, id):
+    widgets = {
+        'tanggal_mulai': DatePickerInput(),
+        'tanggal_selesai': DatePickerInput(),
+    }
+    if req.POST:
+        pkl = models.Pkl.objects.filter(pk=id).update(
+            judul=req.POST['judul'], 
+            nama_dosen=req.POST['nama_dosen'], 
+            tanggal_mulai=req.POST['tanggal_mulai'], 
+            tanggal_selesai=req.POST['tanggal_selesai'])
+        return redirect('/mahasiswas')
+
+    pkl = models.Pkl.objects.filter(pk=id).first()    
+    return render(req, 'mahasiswas/update.html', {
+        'data': pkl,
+    })
+
+@login_required(login_url='/accounts/')
+def detail(req, id):
+    pkl = models.Pkl.objects.filter(pk=id).first()    
+    return render(req, 'mahasiswa/detail.html', {
+        'data': pkl,
+    })
 # def get_random_string(length):
 #     letters = string.ascii_lowercase + string.digits
 #     result_str = ''.join(random.choice(letters) for i in range(length))

@@ -114,10 +114,7 @@ def detail(req, id):
 
 @login_required(login_url='/accounts/')
 def detail_staf(req, id):
-    pkl = models.Pkl.objects.filter(pk=id).first()    
-    return render(req, 'mahasiswas/detail.html', {
-        'data': pkl,
-    })
+    pkl = modemahasiswas
 
 @login_required(login_url='/accounts/')
 def delete(req, id):

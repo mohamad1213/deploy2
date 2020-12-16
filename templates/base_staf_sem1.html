@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - Staf</title>
+    <link rel="stylesheet" href="{% static 'css/dist/css/sweetalert.css' %}">
+    <link href="{% static 'css/dist/css/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/dist/js/dataTables.bootstrap4.min.css' %}" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar d-flex justify-content-between py-3" style="background-color: rgb(255, 214, 0); ">
+        <div class="bd-highlight">
+            <a href="/" class="d-flex d-sm-none"><img src="{% static 'css/UNU.png' %}" width="60px"></a>
+            <a href="/" class="d-none d-sm-flex"><img src="{% static 'css/logo.png' %}" width="250px"></a>
+        </div>
+
+        <div class="bd-highlight">
+            <div class="bd-highlight">
+                <h3 class="navbar-dark d-none d-sm-flex" style=" padding-right: 1rem; margin: 0;">Monitoring Laboratorium Sosial</h3>
+                <h3 class="navbar-dark d-flex d-sm-none" style=" padding-right: 1rem; margin: 0;">LABSOS-Mobile</h3>
+            </div>
+        </div>
+
+        <div class="bd-highlight">
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#" style="color: black;"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu" style="background-color: #625f53;">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading" style="color: honeydew;">{{user}}</div>
+                        <a class="nav-link" href="/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <br>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
+                            aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Manajement
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/staf_sem1">Data  Semeseter 1</a>
+                                <a class="nav-link" href="/dosens">Data Dosen/Mentor</a>
+                                <a class="nav-link" href="/forumsem1">Data Tema</a>
+                            </nav>
+                        </div>
+                        <br>
+                        <a class="nav-link" href="/cetak_staf">
+                            <div class="sb-nav-link-icon"><i class="fas fa-print"></i></div>
+                            Cetak Dokumen
+                        </a>
+                        <br>
+                        <a class="nav-link" href="/accounts/logout">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i>
+                            </div>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                {% include 'messages.html' %}
+                {% block content %}
+                <!-- # isi konten -->
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+
+    <script src="{% static 'css/dist/js/jquery-3.5.1.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'css/dist/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'css/dist/js/scripts.js' %}"></script>
+    <script src="{% static 'css/dist/js/Chart.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'css/dist/assets/demo/chart-area-demo.js' %}"></script>
+    <script src="{% static 'css/dist/assets/demo/chart-bar-demo.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'css/dist/js/dataTables.bootstrap4.min.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'css/dist/assets/demo/datatables-demo.js' %}"></script>
+    <script src="{% static 'css/dist/js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'css/dist/js/sweetalert.js' %}"></script>
+    <script src="{% static 'countable_field/js/scripts.js' %}"></script>
+
+    <script>
+        setTimeout(function () {
+            if ($('#msg').length > 0) {
+                $('#msg').remove();
+            }
+        }, 2000)
+    </script>
+
+    {% block script %}
+
+    {% endblock %}
+
+</body>
+
+</html>
